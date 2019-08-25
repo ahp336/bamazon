@@ -21,11 +21,11 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
     if (err) throw err;
    
-    displayInvetory();
+    display();
 });
 
 
-function displayInvetory() {
+function display() {
     connection.query("SELECT item_id, product_name, price FROM products", function (err, results) {
         if (err) throw err;
         console.table(results);
@@ -86,7 +86,7 @@ function order(){
                                     ]
                                 }).then(function (answer) {
                                     if(answer.action == "yes"){
-                                        displayInventory(results); } 
+                                        display(); } 
                                     
                                         else{connection.end(); }
                                     });
@@ -95,7 +95,24 @@ function order(){
                 } else {
 
                     console.log("Sorry but there is in sufficient inventory for your order. Please select a lower number of items.");
-                    displayProducts();
+
+                    function ask(){
+                         inquirer.prompt({
+                                name: "action",
+                                type: "list",
+                                message: "Do you want to continue shopping?",
+                                choices: [
+                                    "yes",
+                                    "no"
+                                ]
+                        }).then(function (answer) {
+                                if(answer.action == "yes") { display(); } 
+                            
+                                else{connection.end(); }     
+                        });
+                    }
+                    
+                    ask();
                 }
             });
         });
