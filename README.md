@@ -24,7 +24,7 @@ Customer runs a Node app called `bamazonCustomer.js` which first displays all of
 
 * Snapshot :
 
-    <img src = "images/bamazonCustomer1.png" width = 700>
+    ![Pic1](https://github.com/ahp336/bamazon/blob/master/images/bamazonCustomer1.PNG)
 
 The app then prompts users with two messages.
 
