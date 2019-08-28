@@ -72,7 +72,8 @@ function order(){
 
                 if (quantity <= results[0].inventory) {
                     connection.query(
-                        "UPDATE products SET inventory = ? WHERE ?",[results[0].inventory - quantity, results[0].price * quantity,{item_id: item}],
+                        "UPDATE products SET inventory = ? WHERE item_id = ?", [results[0].inventory - quantity, results[0].item_id],
+
                             function (err) {
                                 if (err) throw err;
                                 console.log(`Order placed successfully! Total cost of purchase(s) is ${results[0].price * quantity} $\n-----------------------------\n`);
