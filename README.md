@@ -37,6 +37,6 @@ Once the customer has placed the order, your application should check if your st
 
 * Snapshot :
 
-    ![Pic1](https://github.com/ahp336/bamazon/blob/master/images/bamazonCustomer2.PNG)
+    ![Pic2](https://github.com/ahp336/bamazon/blob/master/images/bamzonCustomer2.PNG)
 
 If the store _does_ have enough of the product, the customer's order is fulfilled and updates the SQL database to reflect the remaining quantity and shows the customer the total cost of their purchase(`shown in image 1`).
